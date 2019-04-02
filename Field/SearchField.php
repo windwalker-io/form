@@ -9,18 +9,18 @@
 namespace Windwalker\Form\Field;
 
 /**
- * The PasswordField class.
+ * The SearchField class.
  *
  * @since  2.0
  */
-class PasswordField extends TextField
+class SearchField extends TextField
 {
     /**
      * Property type.
      *
      * @var  string
      */
-    protected $type = 'password';
+    protected $type = 'email';
 
     /**
      * prepare
