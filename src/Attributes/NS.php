@@ -11,21 +11,23 @@ declare(strict_types=1);
 
 namespace Windwalker\Form\Attributes;
 
+use Attribute;
+use Windwalker\Attributes\AttributeHandler;
+use Windwalker\Attributes\AttributeInterface;
 use Windwalker\Form\Form;
-use Windwalker\Utilities\Attributes\AttributeHandler;
-use Windwalker\Utilities\Attributes\AttributeInterface;
 
 /**
- * The Group class.
+ * The Namespace group class.
  */
-class Group implements AttributeInterface
+#[Attribute]
+class NS implements AttributeInterface
 {
     public string $name;
 
     /**
      * Fieldset constructor.
      *
-     * @param  string       $name
+     * @param  string  $name
      */
     public function __construct(string $name)
     {
@@ -35,7 +37,7 @@ class Group implements AttributeInterface
     /**
      * @inheritDoc
      */
-    public function __invoke(AttributeHandler $handler)
+    public function __invoke(AttributeHandler $handler): callable
     {
         return function () use ($handler) {
             $resolver = $handler->getResolver();
@@ -43,7 +45,9 @@ class Group implements AttributeInterface
             /** @var Form $form */
             $form = $resolver->getOption('form');
 
-            $form->group($this->name, $handler);
+            $form->ns($this->name, $handler);
+
+            return $handler->get();
         };
     }
 }
