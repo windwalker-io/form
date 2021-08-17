@@ -12,10 +12,7 @@ declare(strict_types=1);
 namespace Windwalker\Form\Enum;
 
 use MyCLabs\Enum\Enum;
-use Windwalker\Language\Language;
-use Windwalker\Language\LanguageInterface;
-use Windwalker\Language\LanguageNormalizer;
-use Windwalker\Utilities\StrNormalize;
+use Windwalker\Utilities\Contract\LanguageInterface;
 
 /**
  * Trait EnumTranslableTrait
